@@ -1,0 +1,55 @@
+/* Import: Power Grotesk */
+@font-face {
+  font-family: "Power Grotesk";
+  src: local("Power Grotesk UltraBold"),
+       url('/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff2'),
+       url('/assets/fonts/power-grotesk/PowerGrotesk-UltraBold.woff');
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FightClub";
+  src: local("FightThis"),
+  url("/assets/fonts/FIGHTT3.ttf"),
+}
+
+
+@font-face {
+  font-family: "FredokaOne";
+  src: local("Fredoka One"),
+       url('/assets/fonts/FredokaOne-Regular.otf'),
+}
+
+@font-face {
+  font-family: "Estrogen";
+  src: local("Estroge"),
+  url("/assets/fonts/ESTROG__.ttf"),
+}
+
+@font-face {
+  font-family: "Loaded";
+  src: local("Loaded"),
+  url("/assets/fonts/loaded.ttf"),
+}
+
+/* Import: Mabry Pro */
+@font-face {
+  font-family: "Mabry Pro";
+  src: local("Mabry Pro Regular"),
+       url('/assets/fonts/mabry-pro/MabryPro-Regular.woff2'),
+       url('/assets/fonts/mabry-pro/MabryPro-Regular.woff');
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mabry Pro";
+  src: local("Mabry Pro Bold"),
+       url('/assets/fonts/mabry-pro/MabryPro-Bold.woff2'),
+       url('/assets/fonts/mabry-pro/MabryPro-Bold.woff');
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  font-display: swap;
+}

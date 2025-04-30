@@ -1,0 +1,770 @@
+@use '../utils' as *;
+
+/*=============================
+    00. Banner
+===============================*/
+.gradient-position {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    mix-blend-mode: overlay;
+    z-index: -1;
+    & img {
+        position: fixed;
+        @include filter(blur(80px));
+    }
+}
+.banner {
+    &-area {
+        & .container {
+            position: relative;
+            z-index: 3;
+        }
+    }
+    &-padding {
+        padding: 215px 0 100px;
+        @media #{$xl} {
+            padding: 185px 0 100px;
+        }
+        @media #{$md} {
+            padding: 140px 0 100px;
+        }
+    }
+    &__background-wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: calc(100vh);
+        pointer-events: none;
+        z-index: -1;
+        & .background {
+            position: absolute;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: .1;
+        }
+    }
+    &__content {
+        position: relative;
+        @media #{$md} {
+            text-align: center;
+        }
+        & .title {
+            font-size: 100px;
+            line-height: 1;
+            margin: 0 0 23px;
+            @media #{$xl} {
+                font-size: 68px;
+            }
+            @media #{$lg} {
+                font-size: 60px;
+            }
+            @media #{$xs} {
+                font-size: 42px;
+            }
+            @media #{$sm} {
+                font-size: 50px;
+                line-height: 1.1;
+            }
+        }
+        & .desc {
+            font-size: 38px;
+            padding-top: 20px;
+            line-height: 1.5;
+            max-width: 75%;
+            margin: 0 0 36px;
+            @media #{$lg} {
+                max-width: 85%;
+            }
+            @media #{$md} {
+                max-width: 100%;
+                margin: 0 auto 35px;
+            }
+            @media #{$xs} {
+                font-size: 34px !important;
+                max-width: 90% !important;
+            }
+            @media #{$sm} {
+                
+                font-size: 34px !important;
+                max-width: 90% !important;
+            }
+        }
+        & > img {
+            position: absolute;
+            @include transition(0s);
+            @media #{$xs} {
+                &:first-child {
+                    top: -15% !important;
+                }
+            }
+        }
+        @media #{$xl} {
+            & .gradient-btn-2 {
+                padding: 18px 32px;
+            }
+        }
+        @media #{$xs} {
+            & .gradient-btn-2 {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+        }
+    }
+    &__images {
+        position: relative;
+        margin-left: 25px;
+        z-index: 1;
+        @media #{$md} {
+            margin: 60px auto 0;
+            max-width: 90%;
+        }
+        @media #{$xs} {
+            margin: 60px auto 0;
+            max-width: 100%;
+        }
+        & .shape {
+            position: absolute;
+            z-index: -1;
+            &.dashed-line {
+                right: 0 !important;
+            }
+        }
+        &-grid {
+            @include flexbox();
+            gap: 16px;
+            & .right {
+                margin-top: 48px;
+            }
+            & img {
+                @include border-radius(24px);
+                @media #{$xs} {
+                    @include border-radius(10px);
+                }
+            }
+        }
+        & .tg-circle-text {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-70%, -61%);
+            border-radius: 100%;
+            background-color: var(--tg-common-color-white);
+            box-shadow: 0 6px 32px -1px rgba(0, 0, 0, 0.08);
+            @media #{$md} {
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &::before {
+                content: "";
+                display: block;
+                width: 78px;
+                height: 78px;
+                border: 1px solid rgba(98, 48, 48, 0.175);
+                position: absolute;
+                transform: scale(.5);
+                left: 0;
+                top: 0;
+                transform: translate(20px, 20px);
+                border-radius: 10%;
+                @media #{$lg} {
+                    width: 60px;
+                    height: 60px;
+                }
+                @media #{$xs} {
+                    width: 47px;
+                    height: 47px;
+                }
+                @media #{$sm} {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+            & i[class*="unicon-"] {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                color: var(--tg-theme-secondary);
+                font-weight: var(--tg-fw-bold);
+                font-size: 32px;
+                @media #{$lg} {
+                    font-size: 28px;
+                }
+                @media #{$xs} {
+                    font-size: 22px;
+                }
+                @media #{$sm} {
+                    font-size: 28px;
+                }
+            }
+        }
+        & .tg-circle-text-path {
+            fill: var(--tg-theme-secondary);
+            height: auto;
+            max-width: 132px;
+            right: 10%;
+            transform-origin: center;
+            text-transform: uppercase;
+            display: inline-flex;
+            animation: tg_spin 10s linear 0s infinite;
+            @media #{$lg} {
+                max-width: 100px;
+            }
+            @media #{$xs} {
+                max-width: 85px;
+            }
+            @media #{$sm} {
+                max-width: 100px;
+            }
+        }
+    }
+    &-style-two {
+        text-align: center;
+        min-height: 100vh;
+        padding: 150px 0;
+        @include flexbox();
+        align-items: center;
+        @media #{$xl} {
+            padding: 150px 0 100px;
+        }
+        & .banner__background-wrap .background {
+            opacity: .2;
+            background-size: cover;
+        }
+    }
+    &__content-two {
+        position: relative;
+        & .top-left {
+            @media #{$xl} {
+                left: 40% !important;
+            }
+            @media #{$xs} {
+                left: 60% !important;
+            }
+        }
+        & img {
+            position: absolute;
+            @include transition(0s);
+        }
+        & .title {
+            font-size: 96px;
+            line-height: 1;
+            margin: 20px 0;
+            @media #{$xl} {
+                font-size: 72px;
+            }
+            @media #{$md} {
+                font-size: 64px;
+            }
+            @media #{$xs} {
+                font-size: 50px;
+            }
+            @media #{$sm} {
+                font-size: 64px;
+            }
+        }
+        & .desc {
+            font-size: 24px;
+            line-height: 1.5;
+            color: var(--tg-heading-color);
+            margin: 20px 0;
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+        & .btn {
+            margin: 30px 0 0;
+            @media #{$xs} {
+                margin: 20px 0 0;
+            }
+        }
+    }
+    &-style-three {
+        padding: 80px 0 0;
+        @media #{$xl} {
+            padding: 95px 0 45px;
+        }
+        @media #{$lg} {
+            padding: 180px 0 100px;
+            & .banner__content .title {
+                font-size: 56px;
+            }
+            .banner__content .desc {
+                max-width: 90%;
+                font-size: 20px;
+            }
+        }
+        @media #{$md} {
+            padding: 150px 0 100px;
+            .banner__content .desc {
+                max-width: 80%;
+            }
+        }
+        @media #{$xs} {
+            padding: 140px 0 100px;
+            & .banner__content .title {
+                font-size: 40px;
+            }
+            .banner__content .desc {
+                max-width: 100%;
+            }
+        }
+        @media #{$sm} {
+            & .banner__content .title {
+                font-size: 52px;
+            }
+        }
+        & .banner__background-wrap {
+            opacity: .5;
+            & .background {
+                opacity: 1;
+            }
+        }
+    }
+    &__three-inner {
+        @include flexbox();
+        align-items: center;
+        min-height: calc(100vh - 80px);
+        @media #{$lg} {
+            min-height: 100%;
+        }
+    }
+    &__images-two {
+        position: relative;
+        margin-left: 20px;
+        @media #{$xl} {
+            max-width: 475px;
+            margin: 0 auto;
+        }
+        @media #{$lg} {
+            max-width: 410px;
+        }
+        @media #{$md} {
+            max-width: 450px;
+            margin: 80px auto 0;
+        }
+        @media #{$xs} {
+            max-width: 85%;
+            margin: 55px auto 0;
+        }
+        @media #{$sm} {
+            margin: 80px auto 0;
+        }
+        & > [class*="shape"] {
+            @include transition(0s);
+            position: absolute;
+            @media #{$xs} {
+                max-width: 50px;
+            }
+            @media #{$sm} {
+                max-width: inherit;
+            }
+        }
+        & .shape-one {
+            opacity: .4 !important;
+        }
+        & .shape-four {
+            opacity: .2 !important;
+        }
+        & .shape-five,
+        & .shape-two {
+            animation: tg_spin 10s linear 0s infinite;
+        }
+    }
+    &__images {
+        &-grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            @media #{$lg} {
+                gap: 20px;
+            }
+            & .image-grid-item {
+                &:nth-child(1),
+                &:nth-child(4) {
+                    & .main-image {
+                        img {
+                            animation: fadeInOut 14s infinite !important; // Fade animation for the image only
+                            position: absolute;
+                            top: 23px;
+                            left: 22px;
+                            z-index: 1 !important; // Ensure the image stays above the ::after background
+                            opacity: 1;
+                            border-radius: 10% !important;
+                            width: 100% !important;
+                            height: 100% !important;
+                            object-fit:cover;
+                        }
+                    
+                        cursor: pointer;
+                        position: relative;
+                    
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            width: 100%;
+                            height: 100%;
+                            background: url('/assets/img/artwork/2.jpg') no-repeat center center / cover !important;
+                            border-radius: 10%;
+                            opacity: .9;
+                            z-index: -1 !important;
+                            border: 0.5px solid rgb(34, 15, 34);
+                    
+                            @include transform(translate(24px, 24px));
+                            @include border-radius(10%);
+                    
+                            @media #{$xl} {
+                                @include transform(translate(18px, 18px));
+                            }
+                            @media #{$lg} {
+                                @include border-radius(30px);
+                            }
+                            @media #{$xs} {
+                                @include border-radius(20px);
+                                @include transform(translate(10px, 10px));
+                            }
+                        }
+                    
+                        // Add smoky fog effect
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: -40px;
+                            left: -40px;
+                            width: 130%;
+                            height: 130%;
+                            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+                            filter: blur(50px);
+                            opacity: 0.7;
+                            z-index: -2 !important;
+                            pointer-events: none;
+                        }
+                    }
+                }
+                &:nth-child(4) {
+                    & .main-image {
+                        &::after {
+                            background: transparent;
+                            border: 1px solid rgba(131, 131, 131, 0.25);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            & .main-image {
+                
+                position: relative;
+                width: 380px;
+                height: 380px;
+                z-index: 1;
+                @media #{$xl} {
+                    width: 380px;
+                    height: 380px;
+                    & canvas {
+                        width: 380px;
+                        height: 380px;
+                    }
+                }
+                @media #{$lg} {
+                    width: 350px;
+                    height: 350px;
+                    & canvas {
+                        width: 350px;
+                        height: 350px;
+                    }
+                }
+                @media #{$xs} {
+                    width: 320px; // originally 100%
+                    height: auto;
+                    & canvas {
+                        width: 320px; // originally 100%
+                        height: auto;
+                    }
+                }
+                & img {
+                    box-shadow: 
+    0 0 10px rgba(132, 57, 156, 0.9), /* Inner soft reddish glow */
+    0 0 20px rgba(82, 32, 98, 0.2), /* Outer soft reddish glow */
+    0 0 40px rgba(80, 5, 105, 0.15), /* Larger reddish glow */
+    0 0 80px rgba(132, 57, 156, 0.1); /* Subtle distant glow */
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: 16%;
+                    // animation: wobble 3s infinite alternate;
+                }
+                
+                @media (max-width: 992px) {
+                    #mainImage {
+                        border-radius: 10%;
+                    }
+                }
+                
+                @media (max-width: 576px) {
+                    #mainImage {
+                        border-radius: 10%;
+                    }
+                }
+                
+                @keyframes wobble {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    25% {
+                        transform: translateX(-5%);
+                    }
+                    50% {
+                        transform: translateX(0);
+                    }
+                    75% {
+                        transform: translateX(5%);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+                }
+            }
+        }
+    }
+    &__community {
+        @include flexbox();
+        margin: 65px 0 0;
+        @media #{$xl} {
+            margin: 45px 0 0;
+        }
+        @media #{$md} {
+            justify-content: center;
+            text-align: left;
+        }
+        &-members {
+            @include flexbox();
+            & li {
+                margin-left: -20px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                & img {
+                    @include border-radius(50%);
+                    box-shadow: 0 0 0 3px #fff;
+                }
+            }
+        }
+        &-numbers {
+            margin-left: 20px;
+            & .count {
+                line-height: 1;
+                font-size: 32px;
+                margin: 0 0 0;
+            }
+            & span {
+                display: block;
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+
+.welcome-menu {
+    justify-content:flex-start !important;
+    border: 0px solid white !important;
+    padding-top: 0px !important;
+    margin-bottom: 20px !important;
+}
+
+@media #{$lg} {
+    .welcome-menu {
+        justify-content:center !important;
+    }
+}
+
+@media #{$md} {
+    .welcome-menu {
+        justify-content:center !important;
+    }
+}
+
+.mobile-webinno {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+        display: none;
+        border-radius: 12px;
+    }
+}
+
+@media #{$xs} {
+    .welcome-menu {
+        justify-content:center !important;
+    }
+    .mobile-webinno {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        img {
+            display: block;
+            width: 85%;
+            height: auto;
+            border-radius: 12px;
+        }
+    }
+}
+@media #{$sm} {
+    .welcome-menu {
+        justify-content:center !important;
+    }
+    .mobile-webinno {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        img {
+            display: block;
+            width: 85%;
+            height: auto;
+            border-radius: 12px;
+        }
+    }
+}
+
+
+
+
+#dice-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content; 
+    height: auto;
+    font-size: 24px !important;
+    padding-right: 20px;
+}
+
+#dice-container img {
+    padding-right: 8px;
+    height: 48px;
+    padding-left: 160px;
+}
+
+#dice, #dice-hover {
+    position: absolute;
+    
+    width: auto;
+    text-align: center;
+    height: 106%;
+    transition: opacity 0.5s ease; 
+}
+
+#dice-hover {
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Ignore mouse events */
+}
+
+#dice-container:hover #dice-hover {
+    opacity: 1; /* Show the hover image on hover */
+}
+
+#dice-container:hover #dice {
+    opacity: 0; /* Optionally hide the original image on hover */
+}
+
+.titleF {
+    font-family: "FredokaOne";
+    font-weight: 100;
+    font-size: 80px;
+    color: white;
+    -webkit-text-stroke: 1px #bbb !important;
+    text-shadow: 2px 2px 60px #888888 !important;
+    background: none !important;
+
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+   
+    line-height: 86px !important;
+    -webkit-text-fill-color: white !important;
+}
+
+
+
+.titleF::after {
+    content: "";
+    position: absolute;
+    top: 64px;
+    right: 100px;
+    // background: url("/assets/img/icons/boxing-gloves.png");
+    background-size: contain;
+    height: 56px;
+    width: 82px;
+    z-index: 2; 
+    pointer-events: none; 
+}
+
+
+// @media #{$xl} {
+    
+// }
+// @media #{$lg} {
+   
+// }
+// @media #{$md} {
+   
+// }
+@media #{$xs} {
+    .titleF {
+        font-size: 100px;
+        line-height: 56px !important;
+        margin-left: 0px;
+        padding-left: 0px;
+        padding-bottom: 30px;
+    }
+    .titleF::after {
+        content: "";
+        position: absolute;
+        top: 48px;
+        right: 16px;
+        // background: url("/assets/img/icons/boxing-gloves.png");
+        // background-size: contain;
+        height: 36px;
+        width: 53px;
+        z-index: 2; 
+        pointer-events: none; 
+    }
+}
+@media #{$sm} {
+    .titleF {
+        font-size: 100px;
+        line-height: 56px !important;
+        margin-left: 0px;
+        padding-left: 0px;
+        padding-bottom: 30px;
+    }
+    .titleF::after {
+        content: "";
+        position: absolute;
+        top: 48px;
+        right: 16px;
+        // background: url("/assets/img/icons/boxing-gloves.png");
+        // background-size: contain;
+        height: 36px;
+        width: 53px;
+        z-index: 2; 
+        pointer-events: none; 
+    }
+}
